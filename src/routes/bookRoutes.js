@@ -41,7 +41,7 @@ function router(nav) {
             'bookListView',
             {
               nav,
-              title: 'Library',
+              title: 'Issues',
               books
             }
           );
@@ -74,7 +74,7 @@ function router(nav) {
             'bookView',
             {
               nav,
-              title: 'Library',
+              title: 'Issues',
               book
             }
           );
