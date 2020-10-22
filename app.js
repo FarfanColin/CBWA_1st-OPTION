@@ -28,7 +28,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 const nav = [
-  { link: '/issues', title: 'Issue' },
+  { link: '/issues', title: 'Issues' },
   { link: '/authors', title: 'Author' }
 ];
 
