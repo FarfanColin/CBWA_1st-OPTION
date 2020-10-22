@@ -5,7 +5,7 @@ const ObjectID = require('mongodb').ObjectID;
 // name of our database
 const dbname = "CA";
 // location of where our mongoDB database is located
-//const url = "mongodb://localhost:27017";
+
 // Options for mongoDB
 const MONGO_OPTIONS = { useUnifiedTopology: true, useNewUrlParser: true };
 const passport = require('passport');
@@ -19,7 +19,7 @@ module.exports = function localStrategy() {
       passwordField: 'password'
     }, (username, password, done) => {
       const MongoClient = require("mongodb").MongoClient;
-      const dbname = 'libraryApp';
+      const dbname = 'CA';
       (async function mongo() {
         let client;
 

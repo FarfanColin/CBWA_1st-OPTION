@@ -23,7 +23,7 @@ function router(nav) {
   bookRouter.route('/')
     .get((req, res) => {
       const MongoClient = require("mongodb").MongoClient;
-      const dbname = 'libraryApp';
+      const dbname = 'CA';
 
       (async function mongo() {
         let client;
@@ -33,16 +33,16 @@ function router(nav) {
 
           const db = client.db(dbname);
 
-          const col = await db.collection('books');
+          const col = await db.collection('issues');
 
-          const books = await col.find().toArray();
+          const issues = await col.find().toArray();
 
           res.render(
             'bookListView',
             {
               nav,
               title: 'Issues',
-              books
+              issues
             }
           );
         } catch (err) {
@@ -56,7 +56,7 @@ function router(nav) {
     .get((req, res) => {
       const { id } = req.params;
       const MongoClient = require("mongodb").MongoClient;
-      const dbname = 'libraryApp';
+      const dbname = 'CA';
 
       (async function mongo() {
         let client;
@@ -66,16 +66,16 @@ function router(nav) {
 
           const db = client.db(dbname);
 
-          const col = await db.collection('books');
+          const col = await db.collection('issues');
 
-          const book = await col.findOne({_id: new ObjectID(id) });
-          debug(book);
+          const issue = await col.findOne({_id: new ObjectID(id) });
+          debug(issue);
           res.render(
             'bookView',
             {
               nav,
               title: 'Issues',
-              book
+              issue
             }
           );
         } catch (err) {

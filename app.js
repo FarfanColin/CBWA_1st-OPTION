@@ -15,7 +15,8 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({ secret: 'library' }));
+//Pluralsight video 8, passport part
+app.use(session({ secret: 'project' }));
 
 require('./src/config/passport.js')(app);
 
@@ -27,7 +28,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 const nav = [
-  { link: '/books', title: 'Book' },
+  { link: '/issues', title: 'Issue' },
   { link: '/authors', title: 'Author' }
 ];
 
@@ -35,7 +36,7 @@ const bookRouter = require('./src/routes/bookRoutes')(nav);
 const adminRouter = require('./src/routes/adminRoutes')(nav);
 const authRouter = require('./src/routes/authRoutes')(nav);
 
-app.use('/books', bookRouter);
+app.use('/issues', bookRouter);
 app.use('/admin', adminRouter);
 app.use('/auth', authRouter);
 
@@ -43,7 +44,7 @@ app.get('/', (req, res) => {
   res.render(
     'index',
     {
-      nav: [{ link: '/books', title: 'Books' },
+      nav: [{ link: '/issues', title: 'Issues' },
       { link: '/authors', title: 'Authors' }],
       title: 'CA:Cloud-based Web Applications'
     }

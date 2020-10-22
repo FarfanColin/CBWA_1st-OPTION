@@ -18,7 +18,7 @@ function router(nav) {
     .post((req, res) => {
       const { username, password } = req.body;
       const uri = process.env.MONGO_URI;
-      const dbname = 'libraryApp';
+      const dbname = 'CA';
 
       (async function addUser() {
         let client;

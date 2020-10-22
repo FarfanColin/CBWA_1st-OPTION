@@ -65,7 +65,7 @@ function router(nav) {
   adminRouter.route('/')
     .get((req, res) => {
       const uri = process.env.MONGO_URI;
-      const dbname = 'libraryApp';
+      const dbname = 'CA';
 
       (async function mongo() {
         let client;
