@@ -50,7 +50,8 @@ function router(nav) {
       }());
     });
 
-  issueRouter.route('/issues/:id')
+  issueRouter.route('/:id')
+  //issueRouter.route('/:id')
     .get((req, res) => {
       const { id } = req.params;
       const MongoClient = require("mongodb").MongoClient;

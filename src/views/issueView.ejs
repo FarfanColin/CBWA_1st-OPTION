@@ -1,38 +1,40 @@
 <!--We have to create the webpage for authors/users, the books/issues is already done by bookView and booksListView-->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title><%=title%></title>
-		<meta name="generator" content="Bootply" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="/css/bootstrap.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-		<!--[if lt IE 9]>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title><%=title%></title>
+  <meta name="generator" content="Bootply" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="/css/styles.css" rel="stylesheet">
-	</head>
-	<body>
-<header class="navbar navbar-bright navbar-fixed-top" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">Home</a>
-    </div>
-    <nav class="collapse navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
-        <%for(let i=0; i<nav.length; i++) {%>
-        <li>
-          <a href="<%=nav[i].link%>"><%=nav[i].title%></a>
-        </li>
-        <%}%>
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">Home</a>
+      </div>
+      <nav class="collapse navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          <%for(let i=0; i<nav.length; i++) {%>
+          <li>
+            <a href="<%=nav[i].link%>"><%=nav[i].title%></a>
+          </li>
+          <%}%>
       </ul>
     </nav>
   </div>
@@ -44,96 +46,105 @@
       <div class="col-md-7">
         <h1><%=title%>
           <p class="lead"></p>
-        </h1>
-      </div>
-      <div class="col-md-5">
-        <div class="well well-lg"> 
-          <div class="row">
-            <div class="col-sm-12">
-              
-			
-            </div>
+          </h1>
+    </div>
+    <div class="col-md-5">
+      <div class="well well-lg">
+        <div class="row">
+          <div class="col-sm-12">
+
+
           </div>
         </div>
-      </div>
-    </div> 
-  </div><!-- /cont -->
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="top-spacer"> </div>
-      </div>
-    </div> 
-  </div><!-- /cont -->
-  
-</div>
-
-
-<div class="container">
-  <div class="row">
-    
-    <div class="col-md-12"> 
-      
-      <div class="panel">
-        <div class="panel-body">
-          
-          
-          
-          <!--/stories-->
-          
-            <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="/bug.jpg" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3><%=issue.title%></h3>
-              <h4><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.issueNumber%></h4>
-              <h4><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.description%></h4>
-              <h4><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.status%></h4>
-              <h4><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.Project_ID%></h4>
-              
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-          
-          <!--/stories-->
-          
-          
-        
-          
-        </div>
-      </div>
-                                                                                       
-	                                                
-                                                      
-   	</div><!--/col-12-->
-  </div>
-</div>
-
-<hr>
-
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <ul class="list-inline">
-          <li><i class="icon-facebook icon-2x"></i></li>
-          <li><i class="icon-twitter icon-2x"></i></li>
-          <li><i class="icon-google-plus icon-2x"></i></li>
-          <li><i class="icon-pinterest icon-2x"></i></li>
-        </ul>
-        
       </div>
     </div>
-  </div>
-</footer>
-	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
-	</body>
+    </div>
+    </div><!-- /cont -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="top-spacer"> </div>
+        </div>
+      </div>
+    </div><!-- /cont -->
+
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12">
+
+          <div class="panel">
+            <div class="panel-body">
+
+
+
+              <!--/stories-->
+
+              <div class="row">
+                <br>
+                <div class="col-md-2 col-sm-3 text-center">
+                  <a class="story-title" href="#"><img alt="" src="/bug.jpg" style="width:100px;height:100px"
+                      class="img-circle"></a>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                  <h3><%=issue.title%></h3>
+                  <h4 style="font-family:courier,'new courier';" class="text-muted"> • <%=issue.issueNumber%></h4>
+                  <h4 style="font-family:courier,'new courier';" class="text-muted"> • <%=issue.description%></h4>
+                  <h4 style="font-family:courier,'new courier';" class="text-muted"> • <%=issue.status%></h4>
+                  <h4 style="font-family:courier,'new courier';" class="text-muted"> • <%=issue.Project_ID%></h4>
+                  <h4>
+                    <div class="col-md-2 col-sm-3 text-center">
+                      <form name="signUpForm" action="/auth/signUp" method="post">
+                        Comments: <input name="password" style="width: 800px; height: 200px" id="password" /><br />
+                        <input type="submit" value="Sign up" />
+                      </form>
+                    </div>
+                  </h4>
+                </div>
+                <br><br>
+              </div>
+            </div>
+            <hr>
+
+            <!--/stories-->
+
+
+
+
+          </div>
+        </div>
+
+
+
+      </div>
+      <!--/col-12-->
+    </div>
+    </div>
+
+    <hr>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="list-inline">
+              <li><i class="icon-facebook icon-2x"></i></li>
+              <li><i class="icon-twitter icon-2x"></i></li>
+              <li><i class="icon-google-plus icon-2x"></i></li>
+              <li><i class="icon-pinterest icon-2x"></i></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- script references -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
 </html>
