@@ -32,11 +32,11 @@ const nav = [
   { link: '/authors', title: 'Author' }
 ];
 
-const bookRouter = require('./src/routes/bookRoutes')(nav);
+const issueRouter = require('./src/routes/issueRoutes')(nav);
 const adminRouter = require('./src/routes/adminRoutes')(nav);
 const authRouter = require('./src/routes/authRoutes')(nav);
 
-app.use('/issues', bookRouter);
+app.use('/issues', issueRouter);
 app.use('/admin', adminRouter);
 app.use('/auth', authRouter);
 

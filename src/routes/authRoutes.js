@@ -4,8 +4,6 @@ const MongoClient = require("mongodb").MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 // name of our database
 const dbname = "CA";
-// location of where our mongoDB database is located
-//const url = "mongodb://localhost:27017";
 // Options for mongoDB
 const MONGO_OPTIONS = { useUnifiedTopology: true, useNewUrlParser: true };
 const debug = require('debug')('app:authRoutes');

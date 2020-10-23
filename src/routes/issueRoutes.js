@@ -4,23 +4,21 @@ const MongoClient = require("mongodb").MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 // name of our database
 const dbname = "CA";
-// location of where our mongoDB database is located
-//const url = "mongodb://localhost:27017";
 // Options for mongoDB
 const MONGO_OPTIONS = { useUnifiedTopology: true, useNewUrlParser: true };
-const debug = require('debug')('app:bookRoutes');
+const debug = require('debug')('app:issueRoutes');
 
-const bookRouter = express.Router();
+const issueRouter = express.Router();
 
 function router(nav) {
-  bookRouter.use((req, res, next) => {
+  issueRouter.use((req, res, next) => {
     if (req.user) {
       next();
     } else {
       res.redirect('/');
     }
   });
-  bookRouter.route('/')
+  issueRouter.route('/')
     .get((req, res) => {
       const MongoClient = require("mongodb").MongoClient;
       const dbname = 'CA';
@@ -38,7 +36,7 @@ function router(nav) {
           const issues = await col.find().toArray();
 
           res.render(
-            'bookListView',
+            'issueListView',
             {
               nav,
               title: 'Issues',
@@ -52,7 +50,7 @@ function router(nav) {
       }());
     });
 
-  bookRouter.route('/:id')
+  issueRouter.route('/issues/:id')
     .get((req, res) => {
       const { id } = req.params;
       const MongoClient = require("mongodb").MongoClient;
@@ -71,7 +69,7 @@ function router(nav) {
           const issue = await col.findOne({_id: new ObjectID(id) });
           debug(issue);
           res.render(
-            'bookView',
+            'issueView',
             {
               nav,
               title: 'Issues',
@@ -83,7 +81,7 @@ function router(nav) {
         }
       }());
     });
-  return bookRouter;
+  return issueRouter;
 }
 
 

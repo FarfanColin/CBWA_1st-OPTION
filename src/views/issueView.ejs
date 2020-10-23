@@ -1,3 +1,4 @@
+<!--We have to create the webpage for authors/users, the books/issues is already done by bookView and booksListView-->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -84,27 +85,25 @@
             <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <img alt="" src="/bug.jpg" style="width:100px;height:100px" class="img-circle">
+              <a class="story-title" href="#"><img alt="" src="/bug.jpg" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
-              <h1><%=issue.title%></h1>
-              <h1><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.issueNumber%></h1>
-              <h1><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.description%></h1>
-              <h1><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.status%></h1>
-              <h1><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.Project_ID%></h1>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default"><%=issue.author%></span></h4><h4>
-                  </h4></div>
+              <h3><%=issue.title%></h3>
+              <h4><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.issueNumber%></h4>
+              <h4><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.description%></h4>
+              <h4><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.status%></h4>
+              <h4><small style="font-family:courier,'new courier';" class="text-muted">  • <%=issue.Project_ID%></h4>
+              
                 <div class="col-xs-3"></div>
               </div>
               <br><br>
             </div>
           </div>
           <hr>
+          
           <!--/stories-->
           
-    
+          
         
           
         </div>
@@ -128,6 +127,7 @@
           <li><i class="icon-google-plus icon-2x"></i></li>
           <li><i class="icon-pinterest icon-2x"></i></li>
         </ul>
+        
       </div>
     </div>
   </div>
