@@ -35,10 +35,12 @@ const nav = [
 const issueRouter = require('./src/routes/issueRoutes')(nav);
 const adminRouter = require('./src/routes/adminRoutes')(nav);
 const authRouter = require('./src/routes/authRoutes')(nav);
+const commentRouter = require('./src/routes/commentRoutes')(nav);
 
 app.use('/issues', issueRouter);
 app.use('/admin', adminRouter);
 app.use('/auth', authRouter);
+app.use('/comment', commentRouter);
 
 app.get('/', (req, res) => {
   res.render(

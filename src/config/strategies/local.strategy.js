@@ -46,3 +46,17 @@ module.exports = function localStrategy() {
       }());
     }));
 };
+
+
+module.exports = function localStrategycomment(){
+  passport.use(new Strategy(
+    { 
+      commentnameField: 'commentname'
+    },(commentname, done) => {
+      const commentUser = {
+        commentname
+      };
+      done(null, commentUser);
+    }
+    ));
+};
