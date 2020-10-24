@@ -7,19 +7,19 @@ const dbname = "CA";
 
 // Options for mongoDB
 const MONGO_OPTIONS = { useUnifiedTopology: true, useNewUrlParser: true };
-const debug = require('debug')('app:issueRoutes');
+const debug = require('debug')('app:projectRoutes');
 
-const issueRouter = express.Router();
+const projectRouter = express.Router();
 
 function router(nav) {
-  issueRouter.use((req, res, next) => {
+  projectRouter.use((req, res, next) => {
     if (req.user) {
       next();
     } else {
       res.redirect('/');
     }
   });
-  issueRouter.route('/')
+  projectRouter.route('/')
     .get((req, res) => {
       const MongoClient = require("mongodb").MongoClient;
       const dbname = 'CA';
@@ -32,16 +32,16 @@ function router(nav) {
 
           const db = client.db(dbname);
 
-          const col = await db.collection('issues');
+          const col = await db.collection('projects');
 
-          const issues = await col.find().toArray();
+          const projects = await col.find().toArray();
 
           res.render(
-            'issueListView',
+            'projectViewList',
             {
               nav,
-              title: 'Issues',
-              issues
+              title: 'Projects',
+              projects
             }
           );
         } catch (err) {
@@ -51,7 +51,7 @@ function router(nav) {
       }());
     });
 
-  issueRouter.route('/:id')
+  projectRouter.route('/:id')
     .get((req, res) => {
       const { id } = req.params;
       const MongoClient = require("mongodb").MongoClient;
@@ -65,16 +65,16 @@ function router(nav) {
 
           const db = client.db(dbname);
 
-          const col = await db.collection('issues');
+          const col = await db.collection('projects');
 
-          const issue = await col.findOne({_id: new ObjectID(id) });
-          debug(issue);
+          const project = await col.findOne({_id: new ObjectID(id) });
+          debug(project);
           res.render(
-            'issueView',
+            'projectView',
             {
               nav,
-              title: 'Issues',
-              issue
+              title: 'Projects',
+              project
             }
           );
         } catch (err) {
@@ -82,7 +82,7 @@ function router(nav) {
         }
       }());
     });
-  return issueRouter;
+  return projectRouter;
 }
 
 

@@ -4,12 +4,10 @@ const MongoClient = require("mongodb").MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 // name of our database
 const dbname = "CA";
-
+// Options for mongoDB
 const MONGO_OPTIONS = { useUnifiedTopology: true, useNewUrlParser: true };
-const debug = require('debug')('app:issueRoutes');
-
-
-function issueController(nav){
+const debug = require('debug')('app:projectController');
+function projectController(nav){
     function getIndex(req, res) {
         const MongoClient = require("mongodb").MongoClient;
         const dbname = 'CA';
@@ -22,16 +20,16 @@ function issueController(nav){
   
             const db = client.db(dbname);
   
-            const col = await db.collection('issues');
+            const col = await db.collection('projects');
   
-            const issues = await col.find().toArray();
+            const projects = await col.find().toArray();
   
             res.render(
-              'issueListView',
+              'projectViewList',
               {
                 nav,
-                title: 'Issues',
-                issues
+                title: 'Projects',
+                projects
               }
             );
           } catch (err) {
@@ -53,16 +51,16 @@ function issueController(nav){
   
             const db = client.db(dbname);
   
-            const col = await db.collection('issues');
+            const col = await db.collection('projects');
   
-            const issue = await col.findOne({_id: new ObjectID(id) });
-            debug(issue);
+            const project = await col.findOne({_id: new ObjectID(id) });
+            debug(project);
             res.render(
-              'issueView',
+              'projectView',
               {
                 nav,
-                title: 'Issues',
-                issue
+                title: 'Projects',
+                project
               }
             );
           } catch (err) {
@@ -80,4 +78,4 @@ function issueController(nav){
         };
     }
 
-module.exports = issueController;
+module.exports = projectController;

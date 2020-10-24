@@ -91,19 +91,9 @@
                       class="img-circle"></a>
                 </div>
                 <div class="col-md-10 col-sm-9">
-                  <h3><%=issue.title%></h3>
-                  <h4 style="font-family:courier,'new courier';" class="text-muted"> • <%=issue.issueNumber%></h4>
-                  <h4 style="font-family:courier,'new courier';" class="text-muted"> • <%=issue.description%></h4>
-                  <h4 style="font-family:courier,'new courier';" class="text-muted"> • <%=issue.status%></h4>
-                  <h4 style="font-family:courier,'new courier';" class="text-muted"> • <%=issue.Project_ID%></h4>
-                  <h4>
-                    <div class="col-md-2 col-sm-3 text-center">
-                      <form name="signUpForm" action="/comment/comment" method="post">
-                        Comments: <input name="commentname" style="width: 800px; height: 200px" id="commentid" /><br />
-                        <input type="submit" value="Submit" />
-                      </form>
-                    </div>
-                  </h4>
+                  <h3><%=project.name%></h3>
+                  <h4 style="font-family:courier,'new courier';" class="text-muted"> • <%=project.slug%></h4>
+                  <h4 style="font-family:courier,'new courier';" class="text-muted"> • <%=project.description%></h4>
                 </div>
                 <br><br>
               </div>

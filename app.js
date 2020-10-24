@@ -29,25 +29,29 @@ app.set('view engine', 'ejs');
 
 const nav = [
   { link: '/issues', title: 'Issues' },
-  { link: '/authors', title: 'Author' }
+  { link: '/projects', title: 'Projects' }
 ];
 
 const issueRouter = require('./src/routes/issueRoutes')(nav);
+const projectRouter = require('./src/routes/projectRoutes')(nav);
 const adminRouter = require('./src/routes/adminRoutes')(nav);
 const authRouter = require('./src/routes/authRoutes')(nav);
 const commentRouter = require('./src/routes/commentRoutes')(nav);
+const newprojectRouter = require('./src/routes/newprojectRoutes')(nav);
 
 app.use('/issues', issueRouter);
+app.use('/projects', projectRouter);
 app.use('/admin', adminRouter);
 app.use('/auth', authRouter);
 app.use('/comment', commentRouter);
+app.use('/newproject', newprojectRouter);
 
 app.get('/', (req, res) => {
   res.render(
     'index',
     {
       nav: [{ link: '/issues', title: 'Issues' },
-      { link: '/authors', title: 'Authors' }],
+      { link: '/projects', title: 'Projects' }],
       title: 'CA:Cloud-based Web Applications'
     }
   );

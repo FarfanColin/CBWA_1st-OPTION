@@ -60,3 +60,19 @@ module.exports = function localStrategycomment(){
     }
     ));
 };
+
+module.exports = function localStrategyproject(){
+  passport.use(new Strategy(
+    { 
+      nameField: 'name',
+      idField: 'id',
+      slugField: 'slug',
+      descriptionField: 'description',
+    },(name, id, slug, description, done) => {
+      const projectUser = {
+        name, id, slug, description
+      };
+      done(null, projectUser);
+    }
+    ));
+};
