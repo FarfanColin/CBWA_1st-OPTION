@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const { use } = require('passport');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -29,6 +30,8 @@ app.set('view engine', 'ejs');
 
 const nav = [
   { link: '/issues', title: 'Issues' },
+  { link: '/comments', title: 'Comments' },
+  { link: '/users', title: 'Users' },
   { link: '/projects', title: 'Projects' }
 ];
 
@@ -38,6 +41,8 @@ const adminRouter = require('./src/routes/adminRoutes')(nav);
 const authRouter = require('./src/routes/authRoutes')(nav);
 const commentRouter = require('./src/routes/commentRoutes')(nav);
 const newprojectRouter = require('./src/routes/newprojectRoutes')(nav);
+const comment1Router = require('./src/routes/comment1Routes')(nav);
+const userstRouter = require('./src/routes/usersRoutes')(nav);
 
 app.use('/issues', issueRouter);
 app.use('/projects', projectRouter);
@@ -45,12 +50,16 @@ app.use('/admin', adminRouter);
 app.use('/auth', authRouter);
 app.use('/comment', commentRouter);
 app.use('/newproject', newprojectRouter);
+app.use('/comments', comment1Router);
+app.use('/users', userstRouter);
 
 app.get('/', (req, res) => {
   res.render(
     'index',
     {
       nav: [{ link: '/issues', title: 'Issues' },
+      { link: '/comments', title: 'Comments' },
+      { link: '/users', title: 'Users' },
       { link: '/projects', title: 'Projects' }],
       title: 'CA:Cloud-based Web Applications'
     }

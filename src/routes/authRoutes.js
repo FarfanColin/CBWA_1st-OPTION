@@ -14,7 +14,7 @@ const authRouter = express.Router();
 function router(nav) {
   authRouter.route('/signUp')
     .post((req, res) => {
-      const { username, password } = req.body;
+      const { username, password, email, usertype } = req.body;
       const uri = process.env.MONGO_URI;
       const dbname = 'CA';
 
@@ -27,7 +27,7 @@ function router(nav) {
           const db = client.db(dbname);
 
           const col = db.collection('users');
-          const user = { username, password };
+          const user = { username, password, email, usertype };
           const results = await col.insertOne(user);
           debug(results);
           req.login(results.ops[0], () => {

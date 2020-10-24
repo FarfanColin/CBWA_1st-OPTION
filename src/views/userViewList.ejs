@@ -83,7 +83,7 @@
 
 
               <!--/stories-->
-              <%for(let i=0; i<projects.length; i++) {%>
+              <%for(let i=0; i<users.length; i++) {%>
               <div class="row">
                 <br>
                 <div class="col-md-2 col-sm-3 text-center">
@@ -91,15 +91,16 @@
                       class="img-circle"></a>
                 </div>
                 <div class="col-md-10 col-sm-9">
-                  <h3><%=projects[i].name%></h3>
-                  <h4><small style="font-family:courier,'new courier';" class="text-muted"> • <%=projects[i].slug%></h4>
-                  <h4><small style="font-family:courier,'new courier';" class="text-muted"> • <%=projects[i].description%></h4>
+                  <h3><%=users[i].name%></h3>
+                  <h4><small style="font-family:courier,'new courier';" class="text-muted"> • <%=users[i].email%></h4>
+                    <h4><small style="font-family:courier,'new courier';" class="text-muted"> • <%=users[i].usertype%></h4>
                   <div class="row">
                     <div class="col-xs-9">
+                      <h4><span class="label label-default"><%=users[i].description%></span></h4>
                       <h4>
-                        <a href="/projects/<%=projects[i]._id%>" class="text-muted">CLICK HERE TO SEE MORE
+                        <a href="/users/<%=users[i]._id%>" class="text-muted">CLICK HERE TO SEE MORE
                           DETAILS</a></small>
-                        <!--<a href="/projects/<%=projects[i].  id%>" class="text-muted">CLICK HERE TO SEE MORE DETAILS</a></small>-->
+                        <!--<a href="/users/<%=users[i].  id%>" class="text-muted">CLICK HERE TO SEE MORE DETAILS</a></small>-->
                       </h4>
                     </div>
                     <div class="col-xs-3"></div>
@@ -109,18 +110,6 @@
               </div>
               <hr>
               <%}%>
-              <h4>
-                <div class="col-md-2 col-sm-3 text-center">
-                  <form name="newProjectForm" action="/newproject/newproject" method="post">
-                    <h3>Add new project:</h3> <br><br>
-                    Project Id:<input name="id" style="width: 100px; height: 20px" id="id" /><br />
-                    Project Slug :<input name="slug" style="width: 100px; height: 20px" id="slug" /><br />
-                    Project Name: <input name="name" style="width: 100px; height: 20px" id="name" /><br />
-                    Project Description:<input name="description" style="width: 100px; height: 20px" id="description" /><br />
-                    <input type="submit" value="Add" />
-                  </form>
-                </div>
-              </h4>
           <!--/stories-->
           
           

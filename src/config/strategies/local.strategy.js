@@ -16,8 +16,10 @@ module.exports = function localStrategy() {
   passport.use(new Strategy(
     {
       usernameField: 'username',
-      passwordField: 'password'
-    }, (username, password, done) => {
+      emailField: 'email',
+      passwordField: 'password',
+      usertypeField: 'usertype'
+    }, (username, password, email, usertype, done) => {
       const MongoClient = require("mongodb").MongoClient;
       const dbname = 'CA';
       (async function mongo() {
