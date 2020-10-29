@@ -8,3 +8,5 @@
 ## 1st OPTION
 ---------------------
 run it with **npm** **start**
+--
+NO PASSWORD REQUIRED
